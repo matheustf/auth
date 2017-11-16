@@ -10,9 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Created by odilon-jr on 17/07/17.
- */
+
 @Table(name = "usuarios")
 @Entity
 public class Usuario implements UserDetails {

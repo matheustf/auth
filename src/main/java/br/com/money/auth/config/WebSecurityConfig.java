@@ -12,10 +12,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- * Created by odilon-jr on 14/07/17.
- */
-
 @EnableWebSecurity
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
@@ -28,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/name").permitAll()
-                .antMatchers(HttpMethod.POST, "/greeting").permitAll()
+                .antMatchers(HttpMethod.GET, "/greeting").permitAll()
                 .antMatchers("/usuarios").permitAll()
                 .antMatchers(HttpMethod.POST, "/auth").permitAll()
                 //.antMatchers("/usuario/**").permitAll()

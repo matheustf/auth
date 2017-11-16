@@ -13,9 +13,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-/**
- * Created by odilon-jr on 17/07/17.
- */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
