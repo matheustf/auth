@@ -2,6 +2,7 @@ package br.com.money.auth.filter;
 
 import br.com.money.auth.service.TokenAuthenticationService;
 import br.com.money.auth.usuario.Usuario;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -49,8 +50,7 @@ public class JWTAuthenticationFilter extends GenericFilterBean {
             return getAuthenticationManager().authenticate(
                     new UsernamePasswordAuthenticationToken(
                             creds.getUsername(),
-                            creds.getPassword(),
-                            Collections.emptyList()
+                            creds.getPassword()
                     )
             );
         }

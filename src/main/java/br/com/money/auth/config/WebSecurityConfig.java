@@ -24,10 +24,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/name").permitAll()
-                .antMatchers(HttpMethod.GET, "/greeting").permitAll()
+                .antMatchers(HttpMethod.POST, "/greeting").permitAll()
                 .antMatchers("/usuarios").permitAll()
                 .antMatchers(HttpMethod.POST, "/auth").permitAll()
-                //.antMatchers("/usuario/**").permitAll()
+                .antMatchers("/usuario/**").permitAll()
                 .anyRequest().authenticated().
                 and()
                 .addFilterBefore(new JWTAuthenticationFilter.JWTLoginFilter("/auth", authenticationManager()),

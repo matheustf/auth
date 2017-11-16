@@ -4,11 +4,16 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 public class TokenAuthenticationService {
 
@@ -39,7 +44,9 @@ public class TokenAuthenticationService {
                     .getSubject();
 
             if (user != null) {
-                return new UsernamePasswordAuthenticationToken(user, null, Collections.emptyList());
+            	List<GrantedAuthority> grantedAuthority = new ArrayList<GrantedAuthority>();
+            	return new UsernamePasswordAuthenticationToken(user, null, grantedAuthority);
+            	//return new UsernamePasswordAuthenticationToken(user, null, (Collection<? extends GrantedAuthority>) Collections.emptyList());
             }
         }
         return null;
